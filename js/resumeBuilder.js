@@ -10,10 +10,9 @@ var bio = {
 				"email": "jennycoll@yahoo.com",
 				"github": "jennycoll",
 				"twitter": "@jennycoll",
-				"location": "SF"	
+				"location": "Santa Clara, CA"	
 	},
 	"skills": ["JS", "HTML", "CSS"],
-	"blog": "jennycoll.com",
 	"bioPic": "images/fry.jpg"
 };
 
@@ -27,8 +26,6 @@ function displayBio()
     	                     HTMLgithub.replace("%data%", bio.contacts.github),
         	                 HTMLtwitter.replace("%data%", bio.contacts.twitter), 
                 	         HTMLlocation.replace("%data%", bio.contacts.location)); 
-
-	//$("#header").append(HTMLblog.replace("%data%", bio.blog)); 	
 
 	$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));  
 
@@ -47,14 +44,14 @@ var work = {
 		"employer": "The Hearth",
 		"title": "President",
 		"dates": "2012-Present",
-		"location": "MV",
+		"location": "Monterey, CA",
 		"description": "lead"
 	},
 	{
 		"employer": "SF Martial Arts",
 		"title": "Instructor",
 		"dates": "2013-Present",
-		"location": "SF",
+		"location": "San Francisco, CA",
 		"description": "teach"		
 	}
 	]
@@ -92,7 +89,7 @@ var projects = {
 	]
 };
 
-function displayProjects() {
+projects.display = function() {
 	$("#projects").append(HTMLprojectStart);
 	for (var item in projects.projects) {
 		project = projects.projects[item];
@@ -103,7 +100,7 @@ function displayProjects() {
 	}
 }
 
-displayProjects();
+projects.display();
 
 
 //SECTION 4 - EDUCATION
@@ -113,14 +110,14 @@ var education = {
 		"name": "University1",
 		"degree": "Master",
 		"dates": "2012-Present",
-		"location": "MV",
+		"location": "Menlo Park, CA",
 		"major": "Science"
 	},
 	{
 		"name": "University2",
 		"degree": "Master",
 		"dates": "2012-Present",
-		"location": "MV",
+		"location": "Sacramento, CA",
 		"major": "Arts"
 	}
 	],
@@ -162,6 +159,16 @@ function displayEducation() {
 }
 
 displayEducation();
+
+function inName(name) {
+	var finalName = name;
+    var array = finalName.split(" ");   
+    array[1] = array[1].toUpperCase();   
+    finalName = array.join(" ");
+    
+    return finalName;
+}
+
 
 $("#main").append(internationalizeButton);
 $("#mapDiv").append(googleMap); 
